@@ -289,7 +289,7 @@ function App() {
           >
             <div className="profile-container">
               <motion.img
-                src="/profile.png"
+                src={`${import.meta.env.BASE_URL}profile.png`}
                 alt="ABRAR AHMED A H"
                 className="profile-image"
                 initial={{ scale: 1.1 }}
@@ -705,7 +705,7 @@ function MobileFrameView() {
 
               {/* Profile image - center, overlapping */}
               <div className="mobile-profile-hero">
-                <img src="/profile.png" alt="ABRAR AHMED" className="mobile-profile-img" />
+                <img src={`${import.meta.env.BASE_URL}profile.png`} alt="ABRAR AHMED" className="mobile-profile-img" />
               </div>
 
               {/* Background flowing text - right side */}
