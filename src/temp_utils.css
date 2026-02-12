@@ -1,0 +1,95 @@
+/* More utilities for Device Mode */
+.device-padding {
+    padding: 1.5rem;
+}
+
+.device-flex-col {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.device-scroll-y {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.device-scroll-y::-webkit-scrollbar {
+    width: 4px;
+}
+
+.device-scroll-y::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+[data-theme="dark"] .device-scroll-y::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.device-header {
+    margin-bottom: 1.5rem;
+}
+
+.device-title {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--text-primary);
+    text-transform: uppercase;
+}
+
+.device-subtitle {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-top: 4px;
+}
+
+.device-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 1.25rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.2s ease;
+}
+
+.device-pill {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.device-btn-primary {
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    border: none;
+    border-radius: 1rem;
+    padding: 0.75rem 1.5rem;
+    font-weight: 800;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.device-btn-primary:active {
+    transform: scale(0.95);
+}
+
+.device-icon-box {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}

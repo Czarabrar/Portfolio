@@ -1,0 +1,153 @@
+html:not([data-theme="dark"]) .cyberpunk-card::before {
+    display: none;
+}
+
+/* ===================================
+   MOBILE NAVIGATION (UNIFIED & NATIVE FEEL)
+   =================================== */
+.mobile-bottom-nav-unified {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 90px;
+    /* Taller for safe area + nicer touch targets */
+    background: rgba(255, 255, 255, 0.75);
+    /* Stronger glass */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: flex-start;
+    /* Align top to leave space for home bar */
+    justify-content: space-around;
+    padding-top: 15px;
+    padding-bottom: 25px;
+    /* iOS Home Bar Safe Area */
+    z-index: 9999;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .mobile-bottom-nav-unified {
+    background: rgba(10, 10, 10, 0.75);
+    border-top-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.mobile-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 16px;
+    border-radius: 12px;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    position: relative;
+}
+
+.mobile-nav-item svg {
+    width: 24px;
+    height: 24px;
+    stroke-width: 2px;
+    transition: transform 0.2s ease;
+}
+
+/* Active State - iOS Style Filling/Glow */
+.mobile-nav-item.active {
+    color: var(--text-primary);
+}
+
+.mobile-nav-item.active svg {
+    stroke-width: 2.5px;
+    transform: translateY(-2px);
+}
+
+.mobile-nav-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+/* Active Indicator Dot */
+.mobile-nav-item.active::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 18px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--text-primary);
+    box-shadow: 0 0 8px currentColor;
+}
+
+/* Visibility Toggles */
+@media (min-width: 768px) {
+    .mobile-bottom-nav-unified {
+        display: none !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .header {
+        display: none !important;
+    }
+}
+
+
+/* ===================================
+   TABLET OPTIMIZATION (iPad / 768px - 1024px)
+   Bridging the gap between Mobile and Desktop
+   =================================== */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    /* Relax the strict stacking from the 1280px query for Tablet Landscape */
+    .resume-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: var(--space-6);
+    }
+
+    /* Adjust Hero Spacing for Tablet */
+    .hero-v2 {
+        padding-top: 100px;
+        padding-left: var(--space-8);
+        padding-right: var(--space-8);
+    }
+
+    .hero-content-left {
+        padding-right: 0;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    /* Two Phones Side-by-Side on Tablet */
+    .phones-container {
+        flex-direction: row;
+        justify-content: center;
+        gap: var(--space-8);
+        flex-wrap: wrap;
+    }
+
+    .phone-wrapper {
+        transform: scale(0.9);
+        /* Slightly smaller phones for tablet */
+    }
+
+    /* Resume/Certifications */
+    .certifications-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    /* Better Typography for Tablet */
+    .hero-headline-v2 {
+        font-size: 4rem;
+    }
+
+    .electric-card-wrapper {
+        margin: 0 var(--space-4);
+    }
+}

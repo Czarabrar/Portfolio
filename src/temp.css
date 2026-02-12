@@ -1,0 +1,276 @@
+/* ===================================
+   MOBILE & TABLET DEVICE MODE STYLES
+   (Vanilla CSS Implementation)
+   =================================== */
+
+.device-immersive-shell {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    overflow: hidden;
+    transition: background 0.5s ease;
+}
+
+[data-theme="dark"] .device-immersive-shell {
+    background: transparent;
+}
+
+.physical-device-frame {
+    position: relative;
+    background: #080808;
+    border: 12px solid #1a1a1a;
+    box-shadow:
+        0 40px 100px -20px rgba(0, 0, 0, 0.8),
+        0 20px 50px -25px rgba(0, 0, 0, 0.9),
+        inset 0 0 1px 1px rgba(255, 255, 255, 0.1);
+    transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+}
+
+.physical-device-frame.mobile {
+    width: min(390px, 90vw);
+    height: min(844px, 92vh);
+    border-radius: 3.5rem;
+}
+
+.physical-device-frame.tablet {
+    width: min(850px, 90vw);
+    height: min(1100px, 92vh);
+    border-radius: 3rem;
+    border-width: 16px;
+}
+
+.device-screen-wrapper {
+    flex: 1;
+    background: transparent;
+    border-radius: 2.5rem;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.device-notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 32px;
+    background: #000;
+    border-bottom-left-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.device-notch::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: #121212;
+    border-radius: 50%;
+    margin-right: 8px;
+    box-shadow: inset 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+.device-notch::after {
+    content: '';
+    width: 40px;
+    height: 4px;
+    background: #121212;
+    border-radius: 2px;
+}
+
+.device-bottom-nav {
+    height: 80px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 1rem 1.5rem;
+    position: relative;
+    z-index: 100;
+}
+
+[data-theme="dark"] .device-bottom-nav {
+    background: rgba(10, 10, 10, 0.85);
+    border-top-color: rgba(255, 255, 255, 0.05);
+}
+
+.nav-item-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: all 0.3s ease;
+    width: 20%;
+    padding: 0;
+}
+
+.nav-item-btn.active {
+    color: var(--text-primary);
+}
+
+.nav-icon-wrapper {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.nav-item-btn.active .nav-icon-wrapper {
+    background: var(--bg-secondary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    transform: translateY(-4px);
+}
+
+[data-theme="dark"] .nav-item-btn.active .nav-icon-wrapper {
+    background: #1a1a1a;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.02);
+}
+
+.nav-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.device-home-indicator {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 4px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+[data-theme="dark"] .device-home-indicator {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.device-content-scroller {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.device-content-scroller::-webkit-scrollbar {
+    display: none;
+}
+
+.home-section-device {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.home-image-container {
+    width: 100%;
+    height: 38% !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.home-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.home-text-content {
+    flex: 1;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1rem;
+}
+
+.home-title-device {
+    font-size: 1.75rem;
+    font-weight: 950;
+    line-height: 1.1;
+    color: var(--text-primary);
+}
+
+.home-subtitle-device {
+    font-size: 1rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, #06b6d4, #a855f7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.home-desc-device {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 260px;
+}
+
+/* Side UI Objects */
+.device-side-silent {
+    position: absolute;
+    left: -16px;
+    top: 100px;
+    width: 4px;
+    height: 30px;
+    background: #1a1a1a;
+    border-radius: 2px 0 0 2px;
+}
+
+.device-side-vol-up {
+    position: absolute;
+    left: -16px;
+    top: 150px;
+    width: 4px;
+    height: 50px;
+    background: #1a1a1a;
+    border-radius: 2px 0 0 2px;
+}
+
+.device-side-vol-down {
+    position: absolute;
+    left: -16px;
+    top: 210px;
+    width: 4px;
+    height: 50px;
+    background: #1a1a1a;
+    border-radius: 2px 0 0 2px;
+}
+
+.device-side-power {
+    position: absolute;
+    right: -16px;
+    top: 170px;
+    width: 4px;
+    height: 80px;
+    background: #1a1a1a;
+    border-radius: 0 2px 2px 0;
+}

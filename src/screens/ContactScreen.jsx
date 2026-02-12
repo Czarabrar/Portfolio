@@ -5,8 +5,8 @@ const contacts = [
     {
         id: 'email',
         label: 'Email',
-        value: 'abrarahmedah@gmail.com',
-        href: 'mailto:abrarahmedah@gmail.com',
+        value: 'abrarahmedpbt53@gmail.com',
+        href: 'mailto:abrarahmedpbt53@gmail.com',
         icon: Mail,
         color: 'card-pastel-blue',
     },
