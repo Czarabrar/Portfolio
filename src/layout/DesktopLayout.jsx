@@ -26,6 +26,7 @@ import {
     Target,
 } from 'lucide-react';
 
+import TechStackMarquee from '../components/TechStackMarquee';
 import Stepper from '../components/Stepper';
 import PhoneMockup from '../components/PhoneMockup';
 import { aleloProject, ackumenProject, resumeData, aiWorkflowSteps } from '../data/portfolioData';
@@ -108,8 +109,9 @@ export default function DesktopLayout({ isDark, toggleTheme }) {
                         className="hero-content-left"
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
+                        transition={{ duration: 0.8 }}
                     >
+
                         <div className="hero-name-block">
                             <h2 className="hero-name">ABRAR AHMED A H</h2>
                             <div className="hero-tag-v2">
@@ -132,15 +134,7 @@ export default function DesktopLayout({ isDark, toggleTheme }) {
                         </div>
 
                         <div className="hero-actions">
-                            <motion.a
-                                href="#projects"
-                                className="hero-cta-primary"
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
-                            >
-                                View Projects
-                                <ArrowDown size={18} />
-                            </motion.a>
+                            <TechStackMarquee />
                         </div>
                     </motion.div>
 
