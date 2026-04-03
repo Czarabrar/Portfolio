@@ -29,7 +29,7 @@ import {
 import TechStackMarquee from '../components/TechStackMarquee';
 import Stepper from '../components/Stepper';
 import PhoneMockup from '../components/PhoneMockup';
-import { aleloProject, ackumenProject, resumeData, aiWorkflowSteps } from '../data/portfolioData';
+import { aleloProject, ackumenProject, resumeData, aiWorkflowSteps, gullyCricProject, atmosProject, clashOfImaanProject, personalProjectsPhoneData, whatISolve } from '../data/portfolioData';
 
 /* ===================================
    NEON STEPPER SECTION (WRAPPER)
@@ -223,6 +223,38 @@ export default function DesktopLayout({ isDark, toggleTheme }) {
                 </motion.div>
             </section>
 
+            {/* What I Solve Section */}
+            <section className="solve-section" style={{ padding: '6rem 2rem', background: 'transparent' }}>
+                <div className="section-header" style={{ marginBottom: '4rem', textAlign: 'center' }}>
+                    <h2 className="section-title">What I Solve</h2>
+                    <p className="section-subtitle">Bridging the gap between code and production-grade stability.</p>
+                </div>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem', maxWidth: '1200px', margin: '0 auto' }}>
+                    {whatISolve.map((item, idx) => {
+                        const Icon = item.icon;
+                        return (
+                            <motion.div
+                                key={idx}
+                                className={`cyberpunk-card ${item.color}`}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: idx * 0.1 }}
+                                style={{ minHeight: '220px' }}
+                            >
+                                <div className="cyber-content">
+                                    <div className="cyber-icon-wrapper">
+                                        <Icon size={24} style={{ color: 'var(--text-primary)' }} />
+                                    </div>
+                                    <h3 className="cyber-title" style={{ marginTop: '1.25rem', fontSize: '1.1rem' }}>{item.title}</h3>
+                                    <p className="cyber-desc" style={{ fontSize: '0.9rem', lineHeight: '1.5' }}>{item.desc}</p>
+                                </div>
+                            </motion.div>
+                        );
+                    })}
+                </div>
+            </section>
+
             {/* Projects Section - Two Phones */}
             <section id="projects" className="projects-section">
                 <div className="section-header">
@@ -232,9 +264,21 @@ export default function DesktopLayout({ isDark, toggleTheme }) {
                     </p>
                 </div>
 
-                <div className="phones-container">
-                    <PhoneMockup project={aleloProject} />
-                    <PhoneMockup project={ackumenProject} />
+                {/* Enterprise & Client Work */}
+                <div style={{ marginBottom: '5rem' }}>
+                    <h3 style={{ fontSize: '1rem', fontWeight: '700', marginBottom: '1.5rem', opacity: 0.8, textTransform: 'uppercase', letterSpacing: '0.08em', textAlign: 'center' }}>Enterprise & Client Work</h3>
+                    <div className="phones-container" style={{ justifyContent: 'center', marginBottom: '2rem' }}>
+                        <PhoneMockup project={aleloProject} isDarkMode={isDark} />
+                        <PhoneMockup project={ackumenProject} isDarkMode={isDark} />
+                    </div>
+                </div>
+
+                {/* Featured Personal Projects — individual Phone Frames */}
+                <div>
+                    <h3 style={{ fontSize: '1.1rem', fontWeight: '800', marginBottom: '2rem', opacity: 0.8, textTransform: 'uppercase', letterSpacing: '0.1em', textAlign: 'center' }}>Featured Personal Projects</h3>
+                    <div className="phones-container" style={{ justifyContent: 'center' }}>
+                        <PhoneMockup project={[gullyCricProject, atmosProject, clashOfImaanProject]} isDarkMode={isDark} />
+                    </div>
                 </div>
             </section>
 
@@ -412,14 +456,14 @@ export default function DesktopLayout({ isDark, toggleTheme }) {
                         >
                             <div className="resume-card-header">
                                 <Code size={20} />
-                                <h3>Skills</h3>
+                                <h3>Skills & Expertise</h3>
                             </div>
                             {Object.entries(resumeData.skills).map(([key, skillGroup]) => (
-                                <div key={key} className="skills-group">
-                                    <h4>{skillGroup.category}</h4>
-                                    <div className="skills-tags">
+                                <div key={key} className="skills-group" style={{ marginBottom: '1.5rem' }}>
+                                    <h4 style={{ color: '#06b6d4', fontSize: '0.8rem', textTransform: 'uppercase', marginBottom: '0.75rem' }}>{skillGroup.category}</h4>
+                                    <div className="skills-tags" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
                                         {skillGroup.items.map((skill, idx) => (
-                                            <span key={idx} className="skill-tag">{skill}</span>
+                                            <span key={idx} className="skill-tag" style={{ fontSize: '0.75rem' }}>{skill}</span>
                                         ))}
                                     </div>
                                 </div>

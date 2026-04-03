@@ -1,11 +1,10 @@
 import { motion } from 'framer-motion';
 
 const techStack = [
-    { category: 'Core', items: ['React Native', 'TypeScript', 'JavaScript'] },
-    { category: 'State', items: ['Redux', 'Redux Toolkit', 'Context API'] },
-    { category: 'Navigation', items: ['React Navigation', 'Deep Linking'] },
-    { category: 'Backend', items: ['Firebase', 'REST APIs', 'GraphQL'] },
-    { category: 'Tools', items: ['Git', 'VS Code', 'Xcode', 'Android Studio'] },
+    { category: 'Core Development', items: ['React', 'React Native', 'TypeScript', 'Node.js'] },
+    { category: 'Real-Time Systems', items: ['WebSockets', 'Firebase', 'Redis'] },
+    { category: 'Mobile Platform', items: ['React Navigation', 'Performance Tuning', 'Offline Sync'] },
+    { category: 'Architecture & Practices', items: ['Redux / Context', 'Clean Architecture', 'CI/CD'] },
 ];
 
 const staggerContainer = {
@@ -77,6 +76,37 @@ export default function AboutScreen() {
                                 </div>
                             </div>
                         ))}
+                    </div>
+                </motion.div>
+
+                {/* What I Solve */}
+                <motion.div variants={fadeInUp} className="card card-pastel-orange mt-2">
+                    <h3 className="heading-sm mb-4">What I Solve</h3>
+                    <div className="flex flex-col gap-4">
+                        <div>
+                            <span className="text-small" style={{ fontWeight: 600, display: 'block', marginBottom: '4px' }}>
+                                🚀 Performance Optimization
+                            </span>
+                            <p className="text-body text-muted">
+                                Tuning frame rates, fixing unnecessary re-renders, and making apps feel fast.
+                            </p>
+                        </div>
+                        <div>
+                            <span className="text-small" style={{ fontWeight: 600, display: 'block', marginBottom: '4px' }}>
+                                🔥 Debugging Production Issues
+                            </span>
+                            <p className="text-body text-muted">
+                                Tracing complex ANRs, memory leaks, and mysterious race conditions at scale.
+                            </p>
+                        </div>
+                        <div>
+                            <span className="text-small" style={{ fontWeight: 600, display: 'block', marginBottom: '4px' }}>
+                                🏗️ Scalable Architecture
+                            </span>
+                            <p className="text-body text-muted">
+                                Designing offline-first mechanisms, clean module ownership, and data layers that simply work.
+                            </p>
+                        </div>
                     </div>
                 </motion.div>
 

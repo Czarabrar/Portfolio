@@ -16,13 +16,20 @@ import {
     Award,
     Cloud,
     ExternalLink,
-    ChevronRight
+    ChevronRight,
+    Zap,
+    Bell,
+    CloudOff,
+    Cpu,
+    Activity,
+    Layers,
+    Shield
 } from 'lucide-react';
 
 import AppShell from '../components/AppShell';
 import PhoneMockup from '../components/PhoneMockup';
 import ProjectContent from '../components/ProjectContent';
-import { aleloProject, ackumenProject, resumeData, aiWorkflowSteps } from '../data/portfolioData';
+import { aleloProject, ackumenProject, resumeData, aiWorkflowSteps, gullyCricProject, atmosProject, clashOfImaanProject, whatISolve } from '../data/portfolioData';
 
 export default function DeviceLayout({ isDark, toggleTheme, variant = 'mobile' }) {
     const [activeTab, setActiveTab] = useState('home');
@@ -49,7 +56,7 @@ export default function DeviceLayout({ isDark, toggleTheme, variant = 'mobile' }
                         variants={tabVariants}
                         transition={{ duration: 0.4, ease: "easeOut" }}
                         className={`home-section-device is-${variant}`}
-                        style={{ position: 'relative', height: '100%', overflow: 'hidden' }}
+                        style={{ position: 'relative', height: '100%', overflowY: 'auto', overflowX: 'hidden' }}
                     >
                         {/* Theme Toggle - Top Right Absolute */}
                         <button
@@ -91,57 +98,91 @@ export default function DeviceLayout({ isDark, toggleTheme, variant = 'mobile' }
                                     2.0+ Years building intelligent, production-grade mobile applications
                                 </span>
                             </p>
+
+                            {/* Call to Action for Solutions */}
+                            <div style={{ marginTop: '2rem', paddingBottom: '3rem' }}>
+                                <button
+                                    onClick={() => setActiveTab('solutions')}
+                                    className="device-btn-primary"
+                                    style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', padding: '1rem' }}
+                                >
+                                    <Shield size={18} /> View Engineering Solutions
+                                </button>
+                            </div>
                         </div>
                     </motion.div>
                 );
 
-            case 'ai':
+            case 'solutions':
                 return (
                     <motion.div
-                        key="ai"
+                        key="solutions"
                         initial="hidden"
                         animate="visible"
                         exit="exit"
                         variants={tabVariants}
                         transition={{ duration: 0.4 }}
-                        className="device-flex-col device-padding"
+                        className="device-flex-col"
                     >
-                        <header className="device-header">
-                            <h2 className="device-title">AI PARTNER</h2>
-                            <p className="device-subtitle">Reasoning Workflow</p>
-                        </header>
+                        <div className="device-padding device-scroll-y" style={{ paddingBottom: '3rem' }}>
+                            <header className="device-header">
+                                <h2 className="device-title">SOLUTIONS</h2>
+                                <p className="device-subtitle">Expertise & Performance</p>
+                            </header>
 
-                        <div className="device-scroll-y">
-                            {aiWorkflowSteps.map((step, idx) => (
-                                <motion.div
-                                    key={idx}
-                                    initial={{ opacity: 0, y: 15 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: idx * 0.1 }}
-                                    className="device-card"
-                                    style={{ position: 'relative', paddingLeft: '3.5rem' }}
-                                >
-                                    <div style={{
-                                        position: 'absolute',
-                                        left: '1rem',
-                                        top: '1rem',
-                                        width: '28px',
-                                        height: '28px',
-                                        borderRadius: '50%',
-                                        background: 'var(--text-primary)',
-                                        color: 'var(--bg-primary)',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        fontSize: '0.75rem',
-                                        fontWeight: '900'
-                                    }}>
-                                        {idx + 1}
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: '1rem' }}>
+                                {whatISolve.map((item, idx) => {
+                                    const Icon = item.icon;
+                                    return (
+                                        <div key={idx} className="device-card" style={{ margin: 0, padding: '1rem', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)' }}>
+                                            <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                                                <div style={{ padding: '0.5rem', borderRadius: '0.75rem', background: 'var(--bg-primary)', border: '1px solid var(--border-color)' }}>
+                                                    <Icon size={18} color="#06b6d4" />
+                                                </div>
+                                                <div>
+                                                    <div style={{ fontSize: '0.9rem', fontWeight: '800', color: 'var(--text-primary)', marginBottom: '0.25rem' }}>{item.title}</div>
+                                                    <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', lineHeight: '1.5' }}>{item.desc}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+
+                            <header className="device-header" style={{ marginTop: '2.5rem' }}>
+                                <h2 className="device-title" style={{ fontSize: '0.65rem', color: 'var(--text-muted)' }}>MODERN WORKFLOW</h2>
+                                <p className="device-subtitle">AI-Powered Development</p>
+                            </header>
+
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: '1rem' }}>
+                                {aiWorkflowSteps.map((step, idx) => (
+                                    <div
+                                        key={idx}
+                                        className="device-card"
+                                        style={{ position: 'relative', paddingLeft: '3.5rem', margin: 0 }}
+                                    >
+                                        <div style={{
+                                            position: 'absolute',
+                                            left: '1rem',
+                                            top: '1.25rem',
+                                            width: '24px',
+                                            height: '24px',
+                                            borderRadius: '50%',
+                                            background: 'var(--text-primary)',
+                                            color: 'var(--bg-primary)',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            fontSize: '0.7rem',
+                                            fontWeight: '900'
+                                        }}>
+                                            {idx + 1}
+                                        </div>
+                                        <h3 style={{ fontSize: '0.85rem', fontWeight: '800', marginBottom: '0.2rem' }}>{step.title}</h3>
+                                        <p style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', lineHeight: '1.4' }}>{step.description}</p>
                                     </div>
-                                    <h3 style={{ fontSize: '0.9rem', fontWeight: '800', marginBottom: '0.25rem' }}>{step.title}</h3>
-                                    <p style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', lineHeight: '1.4' }}>{step.description}</p>
-                                </motion.div>
-                            ))}
+                                ))}
+                            </div>
                         </div>
                     </motion.div>
                 );
@@ -157,46 +198,85 @@ export default function DeviceLayout({ isDark, toggleTheme, variant = 'mobile' }
                         transition={{ duration: 0.4 }}
                         className="device-flex-col"
                     >
-                        <div className="device-padding" style={{ paddingBottom: '0.5rem' }}>
+                        <div className="device-padding device-scroll-y" style={{ paddingBottom: '2rem' }}>
                             <h2 className="mobile-project-title">PROJECTS</h2>
-                            <p className="mobile-project-subtitle">Case Studies</p>
+                            <p className="mobile-project-subtitle">Enterprise & Client Work</p>
 
-                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem', marginTop: '1rem' }}>
-                                <button
-                                    onClick={() => setSelectedProject('alelo')}
-                                    className="device-card"
-                                    style={{
-                                        margin: 0,
-                                        padding: '0.75rem',
-                                        borderColor: selectedProject === 'alelo' ? 'var(--text-primary)' : 'var(--border-color)',
-                                        background: selectedProject === 'alelo' ? (isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.02)') : 'transparent'
-                                    }}
-                                >
-                                    <div style={{ fontSize: '0.6rem', fontWeight: '900', color: '#06b6d4', marginBottom: '0.25rem', letterSpacing: '0.5px' }}>COMMERCE</div>
-                                    <div style={{ fontSize: '0.7rem', fontWeight: '800', color: 'var(--text-primary)' }}>MOBILE APP</div>
-                                </button>
-                                <button
-                                    onClick={() => setSelectedProject('ackumen')}
-                                    className="device-card"
-                                    style={{
-                                        margin: 0,
-                                        padding: '0.75rem',
-                                        borderColor: selectedProject === 'ackumen' ? 'var(--text-primary)' : 'var(--border-color)',
-                                        background: selectedProject === 'ackumen' ? (isDark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.02)') : 'transparent'
-                                    }}
-                                >
-                                    <div style={{ fontSize: '0.6rem', fontWeight: '900', color: '#a855f7', marginBottom: '0.25rem', letterSpacing: '0.5px' }}>ENTERPRISE</div>
-                                    <div style={{ fontSize: '0.7rem', fontWeight: '800', color: 'var(--text-primary)' }}>PLATFORM</div>
-                                </button>
+                            {/* Enterprise Projects with Full Details */}
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginTop: '1rem', marginBottom: '2.5rem' }}>
+                                {[aleloProject, ackumenProject].map((proj) => (
+                                    <div key={proj.title} className="device-card" style={{ margin: 0, padding: '1rem', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)' }}>
+                                        <div style={{ fontSize: '0.6rem', fontWeight: '900', color: '#a855f7', marginBottom: '0.25rem', letterSpacing: '0.5px', textTransform: 'uppercase' }}>{proj.type}</div>
+                                        <div style={{ fontSize: '1rem', fontWeight: '800', color: 'var(--text-primary)', marginBottom: '0.5rem' }}>{proj.title}</div>
+                                        <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', lineHeight: '1.5', marginBottom: '1rem' }}>{proj.intro}</div>
+
+                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '1rem' }}>
+                                            {proj.features.map((feature, idx) => {
+                                                const Icon = feature.icon;
+                                                return (
+                                                    <div key={idx} style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
+                                                        <div style={{ marginTop: '0.25rem', padding: '0.4rem', borderRadius: '0.5rem', background: 'var(--bg-primary)' }}>
+                                                            <Icon size={14} color="#a855f7" />
+                                                        </div>
+                                                        <div>
+                                                            <div style={{ fontSize: '0.75rem', fontWeight: '800' }}>{feature.title}</div>
+                                                            <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', lineHeight: '1.4' }}>{feature.desc}</div>
+                                                        </div>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+
+                                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.3rem', borderTop: '1px solid var(--border-color)', paddingTop: '0.75rem' }}>
+                                            {proj.tech.map((t) => (
+                                                <span key={t} className="device-pill" style={{ fontSize: '0.6rem' }}>{t}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
-                        </div>
 
-                        <div style={{ flex: 1, position: 'relative', background: 'transparent', borderTop: '1px solid var(--border-color)', overflow: 'hidden' }}>
-                            <ProjectContent
-                                project={selectedProject === 'alelo' ? aleloProject : ackumenProject}
-                                scrollable={true}
-                                isDarkMode={isDark}
-                            />
+                            <p className="mobile-project-subtitle">Featured Personal Work</p>
+
+                            {/* Featured Personal Projects with Full Details */}
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', marginTop: '1rem' }}>
+                                {[gullyCricProject, atmosProject, clashOfImaanProject].map((proj) => (
+                                    <div key={proj.title} className="device-card" style={{ margin: 0, padding: '1rem', background: 'var(--bg-secondary)', border: '1px solid var(--border-color)' }}>
+                                        <div style={{ fontSize: '0.65rem', fontWeight: '900', color: '#06b6d4', marginBottom: '0.25rem', letterSpacing: '0.5px', textTransform: 'uppercase' }}>{proj.type}</div>
+                                        <div style={{ fontSize: '1rem', fontWeight: '800', color: 'var(--text-primary)', marginBottom: '0.5rem' }}>{proj.title}</div>
+                                        <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', lineHeight: '1.5', marginBottom: '1rem' }}>{proj.intro}</div>
+
+                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '1rem' }}>
+                                            {proj.features.map((feature, idx) => {
+                                                const Icon = feature.icon;
+                                                return (
+                                                    <div key={idx} style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
+                                                        <div style={{ marginTop: '0.25rem', padding: '0.4rem', borderRadius: '0.5rem', background: 'var(--bg-primary)' }}>
+                                                            <Icon size={14} color="#06b6d4" />
+                                                        </div>
+                                                        <div>
+                                                            <div style={{ fontSize: '0.75rem', fontWeight: '800' }}>{feature.title}</div>
+                                                            <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', lineHeight: '1.4' }}>{feature.desc}</div>
+                                                        </div>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+
+                                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.3rem', borderTop: '1px solid var(--border-color)', paddingTop: '0.75rem', marginBottom: '1rem' }}>
+                                            {proj.tech.map((t) => (
+                                                <span key={t} className="device-pill" style={{ fontSize: '0.6rem' }}>{t}</span>
+                                            ))}
+                                        </div>
+
+                                        {proj.github && (
+                                            <a href={proj.github} target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.7rem', fontWeight: '700', color: '#06b6d4', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                                <Github size={14} /> View on GitHub →
+                                            </a>
+                                        )}
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </motion.div>
                 );
@@ -248,16 +328,17 @@ export default function DeviceLayout({ isDark, toggleTheme, variant = 'mobile' }
                                 </div>
                             ))}
 
-                            <h3 className="device-subtitle" style={{ color: 'var(--text-primary)', marginBottom: '1rem' }}>SKILLS</h3>
-                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', paddingBottom: '1rem' }}>
-                                {[
-                                    ...resumeData.skills.core.items,
-                                    ...resumeData.skills.mobile.items,
-                                    ...resumeData.skills.tools.items
-                                ].map((skill, i) => (
-                                    <span key={i} className="device-pill">{skill}</span>
-                                ))}
-                            </div>
+                            <h3 className="device-subtitle" style={{ color: 'var(--text-primary)', marginBottom: '1rem' }}>SKILLS & EXPERTISE</h3>
+                            {Object.entries(resumeData.skills).map(([key, skillGroup]) => (
+                                <div key={key} style={{ marginBottom: '1.25rem' }}>
+                                    <div style={{ fontSize: '0.6rem', fontWeight: '900', color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '0.5rem' }}>{skillGroup.category}</div>
+                                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
+                                        {skillGroup.items.map((skill, i) => (
+                                            <span key={i} className="device-pill" style={{ margin: 0 }}>{skill}</span>
+                                        ))}
+                                    </div>
+                                </div>
+                            ))}
                         </div>
                     </motion.div>
                 );

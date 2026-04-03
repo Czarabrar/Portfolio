@@ -66,7 +66,7 @@ export default function ContactScreen() {
                 <motion.div variants={fadeInUp}>
                     <h1 className="heading-lg">Contact</h1>
                     <p className="text-body mt-2">
-                        Let's talk. I'm open to new opportunities and interesting projects.
+                        Let's talk. I engineer high-performing applications that scale. If you're building something ambitious, I can help.
                     </p>
                 </motion.div>
 
@@ -117,8 +117,7 @@ export default function ContactScreen() {
                         <span className="heading-sm">Available for Work</span>
                     </div>
                     <p className="text-body">
-                        Currently open to full-time positions and contract work.
-                        Based in India, flexible with remote.
+                        Currently open to full-time engineering roles. Ready to ship production-grade code on day one. Based in India, flexible with remote.
                     </p>
                 </motion.div>
 

@@ -1,10 +1,10 @@
 import React from 'react';
-import { Home, Briefcase, Target, FileText, Mail } from 'lucide-react';
+import { Home, Briefcase, ShieldCheck, FileText, Mail } from 'lucide-react';
 
 export default function BottomTabNav({ activeTab, setActiveTab }) {
     const navItems = [
         { id: 'home', label: 'Home', icon: Home },
-        { id: 'ai', label: 'AI', icon: Target },
+        { id: 'solutions', label: 'Solutions', icon: ShieldCheck },
         { id: 'projects', label: 'Projects', icon: Briefcase },
         { id: 'resume', label: 'Resume', icon: FileText },
         { id: 'contact', label: 'Contact', icon: Mail },

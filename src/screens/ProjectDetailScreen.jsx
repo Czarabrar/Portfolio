@@ -6,7 +6,7 @@ const projectData = {
     alelo: {
         name: 'Alelo',
         subtitle: 'E-commerce App',
-        intro: 'I rebuilt the mobile experience for Alelo, an e-commerce platform connecting local buyers and sellers. The focus was on real-time logistics, power efficiency, and a clean UI that users actually want to use.',
+        intro: 'Redesigned the Alelo mobile checkout flow, reducing drop-offs by adopting a distraction-free UX. Slashed background battery drain by actively managing location polling while maintaining real-time logistics tracking.',
         sections: [
             {
                 title: 'UI Redesign',
@@ -44,7 +44,7 @@ const projectData = {
     ackumen: {
         name: 'Ackumen',
         subtitle: 'Enterprise Chemical Company App',
-        intro: 'I worked on a large-scale enterprise application for a chemical manufacturing company. This wasn\'t about flashy features—it was about building something that works reliably at scale, every single day.',
+        intro: 'Scaled critical enterprise modules for a chemical manufacturing application. Ensured strict compliance with audit standards, enabling reliable data capture and offline syncing for field workers in connectivity-dead zones.',
         sections: [
             {
                 title: 'Enterprise Standards',
@@ -72,6 +72,84 @@ const projectData = {
             },
         ],
         tech: ['React Native', 'TypeScript', 'Redux Toolkit', 'REST APIs'],
+    },
+    gullycric: {
+        name: 'GullyCric',
+        subtitle: 'Real-time Cricket Scoring App (Mobile)',
+        intro: 'Developed an offline-first cricket scoring app designed for gully and local matches, ensuring reliable tracking without internet dependence.',
+        sections: [
+            {
+                title: 'Problem',
+                icon: Layers,
+                color: 'card-pastel-blue',
+                content: 'Local cricket matches lack reliable digital scoring tools, especially in low or no internet environments, making match tracking inconsistent and manual.',
+            },
+            {
+                title: 'Architecture & Approach',
+                icon: Package,
+                color: 'card-pastel-purple',
+                content: 'Designed a mobile-first, offline-first React Native application using local state management to ensure uninterrupted match tracking. Focused on fast UI updates and minimal dependency on external services.',
+            },
+            {
+                title: 'Challenges & Solutions',
+                icon: Shield,
+                color: 'card-pastel-green',
+                content: 'Handled real-time score updates without backend dependency by optimizing local state flows. Ensured smooth user experience even with rapid scoring interactions and no network availability.',
+            }
+        ],
+        tech: ['React Native CLI', 'Offline-first Architecture', 'Local State Management']
+    },
+    atmos: {
+        name: 'Atmos',
+        subtitle: 'News & Weather App (Mobile)',
+        intro: 'Built a unified platform combining real-time weather updates with curated news content for a seamless user experience.',
+        sections: [
+            {
+                title: 'Problem',
+                icon: Layers,
+                color: 'card-pastel-green',
+                content: 'Users often rely on multiple apps for weather updates and news, leading to fragmented user experience and increased app switching.',
+            },
+            {
+                title: 'Architecture & Approach',
+                icon: Package,
+                color: 'card-pastel-orange',
+                content: 'Built a unified mobile application integrating weather and news APIs. Implemented asynchronous data fetching with optimized UI rendering for seamless content consumption.',
+            },
+            {
+                title: 'Challenges & Solutions',
+                icon: Shield,
+                color: 'card-pastel-blue',
+                content: 'Managed multiple API responses efficiently while maintaining performance. Designed fallback states and loading strategies to ensure smooth UX under varying network conditions.',
+            }
+        ],
+        tech: ['React Native', 'API Integration', 'Async Data Handling']
+    },
+    'clash-of-imaan': {
+        name: 'Clash of Imaan',
+        subtitle: 'Real-time Quiz & Challenge App',
+        intro: 'Developed an interactive quiz platform with 1v1 battles, daily challenges, and leaderboard engagement, focusing on real-time synchronized interactions.',
+        sections: [
+            {
+                title: 'Problem',
+                icon: Layers,
+                color: 'card-pastel-purple',
+                content: 'Lack of engaging and interactive quiz platforms for group participation and family engagement, especially during events like Ramadan.',
+            },
+            {
+                title: 'Architecture & Approach',
+                icon: Package,
+                color: 'card-pastel-green',
+                content: 'Developed a structured quiz system with support for 1v1 battles, daily challenges, and leaderboard tracking. Focused on dynamic quiz flows and real-time interaction handling.',
+            },
+            {
+                title: 'Challenges & Solutions',
+                icon: Shield,
+                color: 'card-pastel-orange',
+                content: 'Handled synchronization of quiz states and scoring logic across different gameplay modes. Designed scalable challenge systems to maintain engagement and consistency.',
+            }
+        ],
+        tech: ['React Native', 'Real-time Gameplay Logic', 'User Engagement System']
     },
 };
 

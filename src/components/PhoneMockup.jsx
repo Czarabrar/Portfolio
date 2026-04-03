@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import ProjectContent from './ProjectContent';
 
-export default function PhoneMockup({ project, compact = false }) {
+export default function PhoneMockup({ project, compact = false, isDarkMode = false }) {
 
     return (
         <motion.div
@@ -46,7 +46,7 @@ export default function PhoneMockup({ project, compact = false }) {
                         borderRadius: '1.5rem'
                     } : undefined}
                 >
-                    <ProjectContent project={project} />
+                    <ProjectContent project={project} isDarkMode={isDarkMode} />
                 </div>
             </div>
         </motion.div>
